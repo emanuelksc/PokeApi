@@ -26,6 +26,7 @@
       <tr>
         <th scope="col">Item</th>
         <th scope="col">Nombre</th>
+        <th scope="col">Imagen</th>
       </tr>
     </thead>
     <tbody>
@@ -33,6 +34,12 @@
         <tr>
           <th>{{ listaPokemon.id }}</th>
           <th>{{ listaPokemon.name }}</th>
+          <th>
+            <img
+              *ngIf="listaPokemon.sprites"
+              [src]="listaPokemon.sprites.front_default"
+            />
+          </th>
         </tr>
       </ng-container>
     </tbody>
