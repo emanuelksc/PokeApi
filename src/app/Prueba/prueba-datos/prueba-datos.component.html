@@ -1,0 +1,40 @@
+<form [formGroup]="dataFormGroup" novalidate>
+  <label style="margin:10px 0 0 10px;" for="NombrePokemon"
+    >Buscar Pokemon:</label
+  >
+  <br />
+  <input
+    id="NombrePokemon"
+    style="margin:10px 0 0 10px;"
+    type="text"
+    formControlName="inputNombrePokemon"
+  />
+  <button
+    (click)="NombrePokemonBuscador()"
+    style="margin-left: 10px; background-color:skyblue"
+  >
+    Buscar
+  </button>
+  <button
+    (click)="limpiarBuscador()"
+    style="background-color:Red; margin-left:10px;color:white "
+  >
+    Borrar
+  </button>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Item</th>
+        <th scope="col">Nombre</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let listaPokemon of PokemonLista">
+        <tr>
+          <th>{{ listaPokemon.id }}</th>
+          <th>{{ listaPokemon.name }}</th>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</form>
