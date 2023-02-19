@@ -1,6 +1,6 @@
 <form [formGroup]="dataFormGroup" novalidate>
   <label style="margin:10px 0 0 10px;" for="NombrePokemon"
-    >Buscar Pokemon:</label
+    ><span> Buscar Pokemon por Nombre:</span></label
   >
   <br />
   <input
@@ -26,22 +26,41 @@
       <tr>
         <th scope="col">Item</th>
         <th scope="col">Nombre</th>
+        <th scope="col">Tipo</th>
         <th scope="col">Imagen</th>
       </tr>
     </thead>
     <tbody>
       <ng-container *ngFor="let listaPokemon of PokemonLista">
         <tr>
-          <th>{{ listaPokemon.id }}</th>
-          <th>{{ listaPokemon.name }}</th>
-          <th>
+          <td>{{ listaPokemon.id }}</td>
+          <td>{{ listaPokemon.name }}</td>
+          <td>
+            <ng-container
+              *ngFor="let tipo of listaPokemon.types; let isLast = last"
+            >
+              {{ tipo.type.name }}
+              <span *ngIf="!isLast">, </span>
+            </ng-container>
+          </td>
+          <td>
             <img
-              *ngIf="listaPokemon.sprites"
-              [src]="listaPokemon.sprites.front_default"
+              src="{{ listaPokemon.sprites.front_default }}"
+              alt="Imagen de {{ listaPokemon.name }}"
             />
-          </th>
+          </td>
         </tr>
       </ng-container>
     </tbody>
   </table>
+
+  <label style="margin:10px 0 0 10px;" for="NombrePokemon"
+    ><span> Buscar Pokemon por Poder:</span></label
+  >
+  <br />
+  <input
+    type="text"
+    style="margin:10px 0 0 10px;"
+    formControlName="inputTextoInicial"
+  />
 </form>

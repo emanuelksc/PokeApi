@@ -12,6 +12,7 @@ import { PokemonService } from '../../service/pokemon.service';
 })
 export class PruebaDatosComponent implements OnInit {
   PokemonLista: PokemonListadDTO[] = [];
+
   NombrePokemonBuscar: string = '';
   dataFormGroup: FormGroup;
 
@@ -21,10 +22,11 @@ export class PruebaDatosComponent implements OnInit {
   ) {
     this.dataFormGroup = new FormGroup({
       inputNombrePokemon: new FormControl(),
+      inputTextoInicial: new FormControl(),
     });
   }
   ngOnInit(): void {
-    //this.ObtenerConfiguracion();
+    this.AsignarValoresAControles();
   }
 
   NombrePokemonBuscador() {
@@ -41,7 +43,13 @@ export class PruebaDatosComponent implements OnInit {
   }
   limpiarBuscador() {
     this.dataFormGroup.controls['inputNombrePokemon'].reset();
+    this.PokemonLista = [];
   }
+
+  AsignarValoresAControles() {
+    this.dataFormGroup.controls['inputTextoInicial'].setValue('Poder');
+  }
+
   // simulate 3 requests with different delays
 
   /* sumar() {

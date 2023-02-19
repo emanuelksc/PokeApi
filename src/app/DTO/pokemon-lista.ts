@@ -1,4 +1,5 @@
 import { ImagenPokemon } from '../DTO/imagen';
+import { TipoPokemon } from '../DTO/tipo';
 
 export class PokemonListadDTO {
   id!: number;
@@ -6,4 +7,5 @@ export class PokemonListadDTO {
   weight!: number;
   height!: number;
   sprites!: ImagenPokemon;
+  types!: TipoPokemon[];
 }
