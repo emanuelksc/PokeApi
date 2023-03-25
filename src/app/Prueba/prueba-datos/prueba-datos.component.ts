@@ -29,10 +29,17 @@ export class PruebaDatosComponent implements OnInit {
     this.AsignarValoresAControles();
   }
 
+  listas() {
+    let lista = new PokemonListadDTO();
+    lista.name = this.dataFormGroup.controls['inputNombrePokemon'].value;
+    console.log('nombre PK', lista);
+  }
+
   NombrePokemonBuscador() {
     this.NombrePokemonBuscar =
       this.dataFormGroup.controls['inputNombrePokemon'].value;
     this.ObtenerConfiguracion();
+    this.listas();
   }
   ObtenerConfiguracion() {
     forkJoin([
