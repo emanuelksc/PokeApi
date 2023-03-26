@@ -5,6 +5,7 @@ import { PruebaDatosComponent } from './Prueba/prueba-datos/prueba-datos.compone
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ListasComponent } from './Prueba/listas/listas.component';
 
 @NgModule({
   imports: [
@@ -13,9 +14,9 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    
   ],
-  declarations: [AppComponent, PruebaDatosComponent],
+  declarations: [AppComponent, PruebaDatosComponent, ListasComponent],
+
   bootstrap: [AppComponent],
 })
 export class AppModule {}

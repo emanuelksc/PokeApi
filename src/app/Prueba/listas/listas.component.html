@@ -1,5 +1,7 @@
-<select class="form-select" formControlName="selectlista">
-  <option *ngFor="let combo of listaCombo" [value]="combo.id">
-    {{ combo.nombre }}
-  </option>
-</select>
+<form [formGroup]="dataFormGroup" novalidate>
+  <select class="form-select" formControlName="selectlista">
+    <option *ngFor="let combo of listaCombo" [value]="combo.id">
+      {{ combo.nombre }}
+    </option>
+  </select>
+</form>
